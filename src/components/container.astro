@@ -1,0 +1,25 @@
+---
+const { class: className, isFlex = false, isCentered = false } = Astro.props;
+---
+
+<div
+  class:list={[
+    "container",
+    className,
+    { "is-flex": isFlex, "is-centered": isCentered },
+  ]}
+>
+  <slot />
+</div>
+
+<style lang="scss" scoped>
+  .container {
+    max-width: 72rem;
+    margin: 0 auto;
+
+    &.is-flex {
+      display: flex;
+      gap: 3em;
+    }
+  }
+</style>

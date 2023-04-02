@@ -1,0 +1,19 @@
+---
+const { list = [] } = Astro.props;
+---
+
+<div class="tech-list">
+  <ul>
+    {list.map((listItem) => <li>{listItem}</li>)}
+  </ul>
+</div>
+
+<style lang="scss" scoped>
+  .tech-list {
+    ul {
+      margin: 0;
+      list-style: none;
+      padding-left: 0.35em;
+    }
+  }
+</style>

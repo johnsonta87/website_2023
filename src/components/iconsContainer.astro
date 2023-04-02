@@ -1,0 +1,28 @@
+---
+import { ContainerTitle } from "./index.astro";
+
+const { title = "", icons = [], isCentered = false } = Astro.props;
+---
+
+<section class="icons-list" class:list={[{ "is-centered": isCentered }]}>
+  <ContainerTitle title={title} />
+
+  <ul>
+    {
+      icons.map((icon) => (
+        <li>
+          <a href={icon.url} target="_blank">
+            {icon.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style lang="scss" scoped>
+  ul {
+    list-style: none;
+    display: flex;
+  }
+</style>

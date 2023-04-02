@@ -1,0 +1,245 @@
+---
+import { SEO } from "astro-seo";
+import Footer from "../components/footer.astro";
+import Navbar from "../components/navbar.astro";
+import Themes from "astro-themes";
+import {
+  scrollbars,
+  scrollbarTrack,
+  fontBody,
+  fontHeading,
+  colorStandout,
+  colorDark,
+  colorLight,
+  colorBackgroundDark,
+  colorBackground,
+  colorGreyLight,
+  colorGreyDark,
+  colorBodyDark,
+  border,
+} from "../styles/vars.astro";
+import "@fontsource/lora";
+
+export interface Props {
+  title: string;
+  mode: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const { title, mode } = Astro.props;
+
+const makeTitle = title
+  ? title + " | " + "Johnson"
+  : "Johnson Ta - Freelance Front-end UI/UX Developer (Javascript, React, Vue, Node) in Ontario Canada";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <Themes defaultTheme="dark" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+
+    <SEO
+      title={makeTitle}
+      description="Johnson Ta - Freelance Front-end UI/UX Developer (Javascript, React, Vue, Node) in Ontario Canada"
+      canonical={canonicalURL}
+      twitter={{
+        creator: "@JNSN_",
+        site: "@JNSN_",
+      }}
+    />
+  </head>
+
+  <body class:list={[mode === "dark" ? "dark-mode" : ""]}>
+    <Navbar />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <style
+      lang="scss"
+      is:global
+      define:vars={{
+        scrollbars,
+        scrollbarTrack,
+        fontBody,
+        fontHeading,
+        colorStandout,
+        colorDark,
+        colorLight,
+        colorBackground,
+        colorBackgroundDark,
+        colorGreyLight,
+        colorGreyDark,
+        colorBodyDark,
+        border,
+      }}
+    >
+      :root {
+        --accent: 124, 58, 237;
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent)),
+          #da62c4 30%,
+          white 60%
+        );
+      }
+
+      [data-theme="light"] {
+        --colorBackground: var(--colorBackground);
+        --fontColor: var(--colorDark);
+        --colorBackgroundReverse: var(--colorBackground);
+        --greyBackground: var(--colorGreyLight);
+        --borderColor: var(--borderLight);
+
+        #dark-mode-button {
+          display: none;
+        }
+
+        header {
+          background-color: var(--colorGreyLight);
+          box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.15);
+
+          a {
+            color: var(--colorBodyDark);
+          }
+        }
+
+        footer {
+          background-color: var(--colorGreyLight);
+        }
+
+        .is-grey {
+          background-color: var(--colorGreyLight);
+        }
+
+        .reverse {
+          background-color: var(--colorBackground);
+        }
+      }
+
+      [data-theme="dark"] {
+        --colorBackground: var(--colorBackgroundDark);
+        --fontColor: var(--colorLight);
+        --colorBackgroundReverse: var(--colorGreyDark);
+        --greyBackground: var(--colorGreyDark);
+        --borderColor: var(--borderDark);
+
+        #light-mode-button {
+          display: none;
+        }
+
+        body {
+          background-color: var(--colorBodyDark);
+        }
+
+        header {
+          background-color: var(--colorBodyDark);
+          box-shadow: 0px 6px 10px 0px rgba(255, 255, 255, 0.05);
+
+          a {
+            color: var(--colorLight);
+
+            &:hover {
+              color: var(--colorStandout);
+            }
+          }
+        }
+
+        footer {
+          background-color: var(--colorBackgroundDark);
+        }
+
+        .is-grey {
+          background-color: var(--colorBackgroundDark);
+        }
+
+        .reverse {
+          background-color: var(--colorBackgroundDark);
+        }
+      }
+
+      html {
+        font-family: system-ui, sans-serif;
+        overflow-x: hidden;
+      }
+
+      body {
+        width: 100%;
+        margin: 0;
+        font-family: var(--fontBody);
+        overflow-x: hidden;
+        margin-top: 4em;
+        transition: all 0.14s ease-out;
+      }
+
+      a {
+        color: var(--colorText);
+        text-decoration: none;
+        transition: all 0.14s ease-out;
+      }
+
+      img {
+        content-visibility: auto;
+        height: auto;
+        max-width: 100%;
+      }
+
+      blockquote {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+      }
+
+      section {
+        padding-bottom: 3em;
+        padding-top: 3em;
+        border-bottom: var(--border);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--scrollbarTrack);
+        border-radius: 0;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+        background: var(--scrollbar);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        position: relative;
+        font-family: var(--fontHeading);
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
+
+      a,
+      strong {
+        color: var(--colorStandout);
+      }
+
+      .is-centered {
+        text-align: center;
+      }
+
+      .sr-only {
+        clip: rect(0, 0, 0, 0);
+        border-width: 0;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+      }
+    </style>
+  </body>
+</html>

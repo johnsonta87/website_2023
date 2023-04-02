@@ -1,0 +1,36 @@
+---
+import { DarkModeIcon, LightModeIcon } from "../index.astro";
+---
+
+<div>
+  <button
+    id="light-mode-button"
+    aria-label="Toggle dark theme"
+    onclick="document.dispatchEvent(new CustomEvent('set-theme', { detail: 'dark' }))"
+  >
+    <LightModeIcon />
+  </button>
+  <button
+    id="dark-mode-button"
+    aria-label="Toggle light theme"
+    onclick="document.dispatchEvent(new CustomEvent('set-theme', { detail: 'light' }))"
+  >
+    <DarkModeIcon />
+  </button>
+</div>
+
+<style lang="scss" scoped>
+  button {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border: none;
+    background: transparent;
+    line-height: 0;
+    font-weight: 500;
+  }
+</style>

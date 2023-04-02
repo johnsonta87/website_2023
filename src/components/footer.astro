@@ -1,0 +1,29 @@
+---
+import { Container } from "./index.astro";
+---
+
+<footer>
+  <Container isCentered>
+    <p>
+      Copyright © {new Date().getFullYear()}
+      <strong>Johnson Ta</strong>
+    </p>
+    <p>
+      Built with <a href="https://astro.build/" target="_blank">
+        <strong>Astro</strong>
+      </a> and a ton of ♥
+    </p>
+  </Container>
+</footer>
+
+<style lang="scss" scoped>
+  footer {
+    padding: 2em 0;
+    transition: all 0.14s ease-out;
+
+    p {
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+</style>

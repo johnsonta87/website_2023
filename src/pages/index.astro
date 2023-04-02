@@ -1,0 +1,66 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {
+  IntroHero,
+  ContentContainer,
+  IconsContainer,
+  TechList,
+} from "../components/index.astro";
+
+const tech = [
+  "React",
+  "Vue",
+  "Express/Node.js",
+  "Azure DevOps",
+  "Javascript",
+  "HTML/SCSS",
+  "NextJS",
+  "Nuxt",
+  "Astro",
+];
+---
+
+<Layout>
+  <IntroHero title="A UI/UX Engineer" name="Johnson Ta" />
+  <ContentContainer isCentered>
+    <blockquote>
+      Passionate about <strong>code quality</strong>, <strong
+        >well tested components</strong
+      >, and <strong>pixel-perfect UI</strong>
+    </blockquote>
+  </ContentContainer>
+
+  <ContentContainer isGrey title="Ambitions">
+    <p>
+      <strong>7+</strong> years of professional experience and I love the <strong
+        >continual growth</strong
+      > it provides! It's allowed me to shift focus from the Frontend, to Backend,
+      and DevOps. I'm always looking for <strong>new challenges</strong> and <strong
+        >opportunities</strong
+      >
+      to push myself, and the projects I help create.
+    </p>
+  </ContentContainer>
+
+  <ContentContainer isGrey isFlex title="Technology">
+    {tech && <TechList list={tech} />}
+
+    <div>
+      <p>
+        This is a few of the tools and technologies I use to make projects come
+        to life. I'm also very comfortable pushing pixels in Figma, Sketch,
+        Adobe, Video Editing, and SketchUp 3D modeling.
+      </p>
+    </div>
+  </ContentContainer>
+
+  <IconsContainer
+    isCentered
+    title="Companies I've built things for"
+    icons={[
+      { name: "Sceneplus", icon: "", url: "https://www.sceneplus.ca/" },
+      { name: "Swoop Airlines", icon: "", url: "https://www.flyswoop.com/" },
+      { name: "TouchBistro", icon: "", url: "https://www.touchbistro.com/" },
+    ]}
+  />
+</Layout>

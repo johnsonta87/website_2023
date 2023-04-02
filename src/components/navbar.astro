@@ -1,0 +1,145 @@
+---
+import { Container, ThemeSwitcher } from "./index.astro";
+import { Astronav, MenuItems } from "astro-navbar";
+import { colorDark, colorStandout } from "../styles/vars.astro";
+
+const menuitems = [
+  {
+    title: "About",
+    path: "/about",
+  },
+  {
+    title: "Portfolio",
+    path: "/portfolio",
+  },
+  {
+    title: "Resume",
+    path: "/resume",
+  },
+  {
+    title: "Uses",
+    path: "/uses",
+  },
+];
+---
+
+<header>
+  <div class="navbar-container">
+    <div class="header-nav">
+      <a aria-current="page" class="header-logo" href="/">
+        <img class="logo" src="../favicon.png" alt="logo" />
+        Johnson Ta
+        <span class="sr-only">Home</span>
+      </a>
+      <Astronav>
+        <MenuItems>
+          <ul>
+            {
+              menuitems.map((item, index) => (
+                <>
+                  {item.children && (
+                    <Dropdown
+                      title={item.title}
+                      children={item.children}
+                      lastItem={index === menuitems.length - 1}
+                    />
+                  )}
+
+                  {!item.children && (
+                    <li>
+                      <a
+                        href={item.path}
+                        class="flex lg:px-3 py-2 text-gray-600 hover:text-gray-900"
+                      >
+                        {item.title}
+                      </a>
+                    </li>
+                  )}
+                </>
+              ))
+            }
+          </ul>
+        </MenuItems>
+      </Astronav>
+
+      <ThemeSwitcher />
+    </div>
+  </div>
+</header>
+
+<style lang="scss" scoped define:vars={{ colorDark, colorStandout }}>
+  .navbar-container {
+    height: 100%;
+    padding: 0 3em;
+  }
+
+  header {
+    align-items: center;
+    height: 4em;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+    z-index: 10;
+    transition: all 0.14s ease-out;
+
+    .header-logo {
+      color: var(--colorStandout) !important;
+      font-size: 1.5rem;
+      font-weight: 700;
+
+      .logo {
+        max-width: 25px;
+        margin-right: 0.35em;
+        transform: rotate(15deg);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      &:hover {
+        .logo {
+          transform: rotate(-15deg);
+        }
+      }
+    }
+
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+
+      .header-logo {
+        color: var(--colorDark);
+      }
+    }
+
+    nav {
+      > ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+
+        li {
+          a {
+            align-items: center;
+            display: flex;
+            font-size: 1rem;
+            font-weight: 700;
+            height: 100%;
+            justify-items: center;
+            padding: 0.5rem 1rem;
+            transition: color 0.14s ease-out;
+          }
+        }
+      }
+    }
+  }
+</style>
