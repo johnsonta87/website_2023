@@ -21,7 +21,12 @@ const { title = "", name = "" } = Astro.props;
             social.map((socialItem) => (
               <li>
                 <a href="https://github.com/johnsonta87" target="_blank">
-                  <Icon class="icon" name={socialItem.icon} />
+                  <Icon
+                    class="icon"
+                    name={socialItem.icon}
+                    role="img"
+                    aria-label={socialItem.name}
+                  />
                 </a>
               </li>
             ))

@@ -14,7 +14,12 @@ import { proficiencies } from "../components/proficiencies.astro";
         proficiencies.map((proficiency) => (
           <li>
             <p>
-              <Icon class="icon" name={proficiency.icon} />
+              <Icon
+                class="icon"
+                name={proficiency.icon}
+                role="img"
+                aria-label={proficiency.skill}
+              />
               <strong>{proficiency.skill}</strong>
             </p>
             {proficiency.description}
