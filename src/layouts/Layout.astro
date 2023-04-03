@@ -9,6 +9,7 @@ import {
   fontBody,
   fontHeading,
   colorStandout,
+  colorStandoutLight,
   colorDark,
   colorLight,
   colorBackgroundDark,
@@ -68,6 +69,7 @@ const makeTitle = title
         fontBody,
         fontHeading,
         colorStandout,
+        colorStandoutLight,
         colorDark,
         colorLight,
         colorBackground,
@@ -106,7 +108,7 @@ const makeTitle = title
             color: var(--colorBodyDark);
 
             &:hover {
-              color: var(--colorStandout);
+              color: var(--colorStandoutLight);
             }
           }
         }
@@ -125,6 +127,13 @@ const makeTitle = title
 
         .reverse {
           background-color: var(--colorBackground);
+        }
+
+        .is-secondary,
+        .name,
+        a,
+        strong {
+          color: var(--colorStandoutLight) !important;
         }
       }
 
@@ -169,6 +178,10 @@ const makeTitle = title
 
         .reverse {
           background-color: var(--colorBackgroundDark);
+        }
+
+        .is-secondary {
+          color: var(--colorStandout);
         }
       }
 
