@@ -19,22 +19,28 @@ const { title = "", name = "" } = Astro.props;
         <ul class="social">
           {
             social.map((socialItem) => (
-              <li>
-                <a href="https://github.com/johnsonta87" target="_blank">
+              <li class="mr-1">
+                <a
+                  class="flex"
+                  href="https://github.com/johnsonta87"
+                  target="_blank"
+                >
                   <Icon
-                    class="icon"
+                    class="icon mr-1"
                     name={socialItem.icon}
                     role="img"
                     aria-label={socialItem.name}
                   />
+                  <span>{socialItem.name}</span>
                 </a>
               </li>
             ))
           }
           <li>
-            <a href="mailto:jnsn.ta@gmail.com"
-              ><Icon class="icon" name="ic:twotone-mail" /></a
-            >
+            <a class="flex" href="mailto:jnsn.ta@gmail.com">
+              <Icon class="icon mr-1" name="ic:twotone-mail" />
+              <span>Email</span>
+            </a>
           </li>
         </ul>
       </div>
