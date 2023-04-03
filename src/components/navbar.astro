@@ -1,20 +1,16 @@
 ---
 import { Container, ThemeSwitcher } from "./index.astro";
 import { Astronav, MenuItems } from "astro-navbar";
-import { colorDark, colorStandout } from "../styles/vars.astro";
+import { colorDark, colorStandout, colorBodyLight } from "../styles/vars.astro";
 
 const menuitems = [
   {
     title: "About",
-    path: "/about",
+    path: "/",
   },
   {
     title: "Portfolio",
     path: "/portfolio",
-  },
-  {
-    title: "Resume",
-    path: "/resume",
   },
   {
     title: "Uses",
@@ -67,7 +63,11 @@ const menuitems = [
   </div>
 </header>
 
-<style lang="scss" scoped define:vars={{ colorDark, colorStandout }}>
+<style
+  lang="scss"
+  scoped
+  define:vars={{ colorDark, colorStandout, colorBodyLight }}
+>
   .navbar-container {
     height: 100%;
     padding: 0 3em;
@@ -84,10 +84,20 @@ const menuitems = [
     z-index: 10;
     transition: all 0.14s ease-out;
 
+    @media screen and (max-width: 767px) {
+      display: flex;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      justify-content: center;
+      gap: 2em;
+    }
+
     .header-logo {
       color: var(--colorStandout) !important;
       font-size: 1.5rem;
       font-weight: 700;
+      padding: 0.35em;
 
       .logo {
         max-width: 25px;
@@ -97,6 +107,10 @@ const menuitems = [
       }
 
       &:hover {
+        background-color: var(--colorStandout);
+        color: var(--colorBodyDark) !important;
+        border-radius: 2px;
+
         .logo {
           transform: rotate(-15deg);
         }
@@ -113,6 +127,11 @@ const menuitems = [
       height: 100%;
       margin: 0 auto;
 
+      @media screen and (max-width: 767px) {
+        flex-direction: column;
+        gap: 1em;
+      }
+
       .header-logo {
         color: var(--colorDark);
       }
@@ -123,6 +142,7 @@ const menuitems = [
         display: flex;
         flex-direction: row;
         list-style: none;
+        padding: 0;
         margin: 0;
         width: 100%;
         height: 100%;

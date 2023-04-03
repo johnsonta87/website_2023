@@ -12,7 +12,8 @@ const { title = "", icons = [], isCentered = false } = Astro.props;
       icons.map((icon) => (
         <li>
           <a href={icon.url} target="_blank">
-            {icon.name}
+            {icon.icon ? <img src={icon.icon} alt={icon.name} /> : icon.name}
+            <span class="sr-only">{icon.name}</span>
           </a>
         </li>
       ))
@@ -22,7 +23,25 @@ const { title = "", icons = [], isCentered = false } = Astro.props;
 
 <style lang="scss" scoped>
   ul {
+    width: 100%;
     list-style: none;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 3em;
+    padding: 0;
+    margin-top: 2em;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 767px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1.5em;
+    }
+
+    li {
+      img {
+        max-width: 150px;
+      }
+    }
   }
 </style>

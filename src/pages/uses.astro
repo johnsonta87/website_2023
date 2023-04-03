@@ -1,26 +1,56 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { ContainerTitle, ContentContainer } from "../components/index.astro";
+
+const hardware = [
+  "Intel Core i5 PC",
+  "Philips 24inch Monitor",
+  "Dell 24inch Monitor",
+  "MX Master 3",
+  "Ducky Mechanical Keyboard",
+  "Plugable Dock",
+  "MPow Headset",
+];
+const softwares = [
+  "VS Code",
+  "PyCharm",
+  "Spotify",
+  "SketchUp",
+  "Figma",
+  "Sketch",
+  "Adobe",
+  "Chrome",
+];
 ---
 
 <Layout title="About me" mode="dark">
   <ContentContainer>
-    <ContainerTitle title="Uses" />
+    <ContainerTitle title="Uses" secondaryColour />
     <p>
-      I'm an adventurer. The journey can take me to cycling up the highest
-      gradient hills in town or spending an all nighter learning a new tech.
+      I began programming with Macs but 've been happily developing on Windows
+      OS for many years now.
     </p>
-    <p>
-      I have been working as a web developer in various industries including
-      airlines, real estate, nonprofit fundraising, and loyalty rewards. Whether
-      my projects entail ecommerce capabilities, jamstack features driven by a
-      headless CMS, corporate websites, or end-to-end automated testing, I am
-      always excited and passionate to work with teams to go above and beyond.
-    </p>
-    <p>
-      Having worked in the industry for a number of years, I find myself
-      continually learning new technologies either for work or fun. I find it
-      fulfilling when I'm able to solve technical challenges.
-    </p>
+
+    <div class="uses-section">
+      <div class="use-col">
+        <ContainerTitle title="Hardware" secondaryColour />
+        <ul>
+          {hardware.map((hardware) => <li>{hardware}</li>)}
+        </ul>
+      </div>
+      <div class="use-col">
+        <ContainerTitle title="Software" secondaryColour />
+        <ul>
+          {softwares.map((software) => <li>{software}</li>)}
+        </ul>
+      </div>
+    </div>
   </ContentContainer>
 </Layout>
+
+<style lang="scss" scoped>
+  .uses-section {
+    display: flex;
+    justify-content: space-evenly;
+  }
+</style>

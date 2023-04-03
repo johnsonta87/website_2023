@@ -1,26 +1,134 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { ContainerTitle, ContentContainer } from "../components/index.astro";
+
+const portfolioList = [
+  {
+    name: "Sceneplus",
+    icon: "../scene-plus.PNG",
+    url: "https://www.sceneplus.ca/",
+    description:
+      "Revamped website fully to be built on NextJS and React. Headless CMS data was set up from AgilityCMS to populate on pages. Built a system where customers can redeem rewards, authenticate, profile, check points and spend.",
+  },
+  {
+    name: "Swoop Airlines",
+    icon: "../swoop.png",
+    url: "https://www.flyswoop.com/",
+    description:
+      "Converted a Jekyll website to be built on Nuxt and Vue driven by Contentful data. Developed various features including authentication, booking flow, page layouts and flight deal UI.",
+  },
+  {
+    name: "Kiokii and...",
+    icon: "../logo_kiokii.svg",
+    url: "https://kiokii.com/",
+    description:
+      "Shopify ecommerce website with various custom built components to display products according to customer specifications.",
+  },
+  {
+    name: "TouchBistro",
+    icon: "../touchbistro.PNG",
+    url: "https://www.touchbistro.com/",
+    description:
+      "Wordpress website with mutli-language and various pages to match UI designs.",
+  },
+  {
+    name: "CIBC",
+    icon: "../cibc-logo.svg",
+    description:
+      "Developed marketing landing pages for loyalty programs using Umbraco & .NET framework.",
+  },
+  {
+    name: "Martin Daniel Interiors",
+    icon: "../martin-daniels-interior.png",
+    url: "http://www.martindanielinteriors.com/",
+    description:
+      "Developed website using Wordpress with custom theme and plugins implemented.",
+  },
+  {
+    name: "CAMH",
+    icon: "../camh.PNG",
+    description:
+      "Built a page using LuminateOnline CRM for clients of CAMH. Through Contentful, hundreds of stories were able to be shared using AJAX calls.",
+  },
+];
 ---
 
 <Layout title="About me" mode="dark">
   <ContentContainer>
-    <ContainerTitle title="Portfolio" />
-    <p>
-      I'm an adventurer. The journey can take me to cycling up the highest
-      gradient hills in town or spending an all nighter learning a new tech.
-    </p>
-    <p>
-      I have been working as a web developer in various industries including
-      airlines, real estate, nonprofit fundraising, and loyalty rewards. Whether
-      my projects entail ecommerce capabilities, jamstack features driven by a
-      headless CMS, corporate websites, or end-to-end automated testing, I am
-      always excited and passionate to work with teams to go above and beyond.
-    </p>
-    <p>
-      Having worked in the industry for a number of years, I find myself
-      continually learning new technologies either for work or fun. I find it
-      fulfilling when I'm able to solve technical challenges.
-    </p>
+    <ContainerTitle title="Portfolio" secondaryColour />
+
+    <ul>
+      {
+        portfolioList.map((portfolio) => (
+          <li>
+            <a class="link-col" href={portfolio.url} target="_blank">
+              <img src={portfolio.icon} alt={portfolio.name} />
+            </a>
+
+            <div>
+              {portfolio.name && (
+                <span class="website-title">
+                  <strong>{portfolio.name}</strong>
+                </span>
+              )}
+              {portfolio.description && (
+                <p class="description">{portfolio.description}</p>
+              )}
+
+              <a class="visit-link" href={portfolio.url} target="_blank">
+                Visit website
+              </a>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
   </ContentContainer>
 </Layout>
+
+<style lang="scss" scoped>
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2.5em;
+    list-style: none;
+    padding: 0;
+    margin-top: 2em;
+
+    @media screen and (max-width: 767px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    li {
+      display: flex;
+      gap: 3em;
+
+      @media screen and (max-width: 644px) {
+        flex-direction: column;
+        gap: 1em;
+      }
+
+      .link-col {
+        flex: 0 0 25%;
+      }
+
+      .website-title {
+        display: block;
+      }
+
+      .description {
+        margin: 0 auto;
+      }
+
+      .visit-link {
+        display: block;
+        margin: 0.5em auto 0;
+      }
+
+      img {
+        width: 100%;
+        max-width: 150px;
+      }
+    }
+  }
+</style>
