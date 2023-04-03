@@ -1,0 +1,85 @@
+---
+import { ContainerTitle, ContentContainer } from "../components/index.astro";
+import Layout from "../layouts/Layout.astro";
+
+const proficiencies = [
+  {
+    skill: "HTML/CSS",
+    description:
+      "Built markup with semantic HTML, write in Sass for quick and efficient styling of client side rendered HTML.",
+  },
+  {
+    skill: "React",
+    description:
+      "Work with React (Apollo, Graph QL, NextJS/Gatsby/Vite/Astro/Create React App).",
+  },
+  {
+    skill: "Vue",
+    description: "Work with Vue (NuxtJS/Astro/ExpoJS).",
+  },
+  {
+    skill: "Javascript",
+    description:
+      "Async programming, DOM manipulations, state management, object-oriented programming design.",
+  },
+  {
+    skill: "API & Data Handling",
+    description:
+      "Set up get and post secure api calls and display data properly to the frontend.",
+  },
+  {
+    skill: "Component & Unit Testing",
+    description: "Jest, React Testing Library, Cypress, Storybook.",
+  },
+  {
+    skill: "Accessibility",
+    description:
+      "Developed components that meet WCAG guidelines, testing with NVDA, Wave & Axe Testing Tool.",
+  },
+  {
+    skill: "Headless CMS",
+    description:
+      "Provide data source for content editors to update and publish data to the frontend (Agility CMS/Dato/Contentful/Wordpress/Shopify).",
+  },
+  {
+    skill: "Ecommerce",
+    description:
+      "Built booking flow, shopping cart system and checkout/payment functionality.",
+  },
+];
+---
+
+<Layout title="Proficiencies" mode="dark">
+  <ContentContainer>
+    <ContainerTitle title="Proficiencies" secondaryColour />
+
+    <ul class="skills-list">
+      {
+        proficiencies.map((proficiency) => (
+          <li>
+            <p>
+              <strong>{proficiency.skill}</strong>
+            </p>
+            {proficiency.description}
+          </li>
+        ))
+      }
+    </ul>
+  </ContentContainer>
+</Layout>
+
+<style lang="scss" scoped>
+  .skills-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    list-style: none;
+    gap: 2em;
+    padding: 0;
+    margin: 0;
+
+    @media screen and (max-width: 767px) {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -5,7 +5,7 @@ const { title = "", icons = [], isCentered = false } = Astro.props;
 ---
 
 <section class="icons-list" class:list={[{ "is-centered": isCentered }]}>
-  <ContainerTitle title={title} />
+  <ContainerTitle title={title} secondaryColour />
 
   <ul>
     {
