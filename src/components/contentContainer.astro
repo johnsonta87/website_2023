@@ -9,7 +9,7 @@ const {
 } = Astro.props;
 ---
 
-<section class:list={[{ "is-centered": isCentered, "is-grey": isGrey }]}>
+<section class:list={[{ "text-center": isCentered, "is-grey": isGrey }]}>
   <Container>
     {title && <ContainerTitle title={title} secondaryColour />}
   </Container>

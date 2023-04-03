@@ -4,7 +4,7 @@ import { ContainerTitle, ContentContainer } from "./index.astro";
 const { title = "", icons = [], isCentered = false } = Astro.props;
 ---
 
-<section class="icons-list" class:list={[{ "is-centered": isCentered }]}>
+<section class="icons-list" class:list={[{ "text-center": isCentered }]}>
   <ContentContainer>
     <ContainerTitle title={title} secondaryColour />
 

@@ -55,7 +55,7 @@ const portfolioList = [
 
 <Layout title="About me" mode="dark">
   <ContentContainer>
-    <ContainerTitle title="Portfolio" secondaryColour />
+    <ContainerTitle title="Portfolio" secondaryColour showGradientLine />
 
     <ul>
       {
@@ -75,7 +75,11 @@ const portfolioList = [
                 <p class="description">{portfolio.description}</p>
               )}
 
-              <a class="visit-link text-sky-500" href={portfolio.url} target="_blank">
+              <a
+                class="visit-link text-sky-500"
+                href={portfolio.url}
+                target="_blank"
+              >
                 Visit website
               </a>
             </div>

@@ -6,7 +6,7 @@ const { class: className, isFlex = false, isCentered = false } = Astro.props;
   class:list={[
     "container flex flex-wrap items-center mx-auto justify-center md:justify-between",
     className,
-    { "is-flex": isFlex, "is-centered": isCentered },
+    { "is-flex": isFlex, "text-center": isCentered },
   ]}
 >
   <slot />

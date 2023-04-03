@@ -1,17 +1,26 @@
 ---
-const { title = "", secondaryColour = false } = Astro.props;
+const {
+  title = "",
+  secondaryColour = false,
+  showGradientLine = false,
+} = Astro.props;
 ---
 
 {
   title && (
-    <h2
-      class:list={[
-        "max-w-md mb-4 mx-auto",
-        { "text-sky-500": secondaryColour },
-      ]}
-    >
-      {title}
-    </h2>
+    <>
+      <h2
+        class:list={[
+          "max-w-md mb-4 mx-auto",
+          { "text-sky-500": secondaryColour },
+        ]}
+      >
+        {title}
+      </h2>
+      {showGradientLine && (
+        <hr class="border-t-0 flex h-1 w-100 bg-gradient-to-r from-indigo-600 via-purple-400 to-sky-400 sm:mx-0 sm:w-full my-6" />
+      )}
+    </>
   )
 }
 
