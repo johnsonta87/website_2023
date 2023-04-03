@@ -1,24 +1,26 @@
 ---
-import { ContainerTitle } from "./index.astro";
+import { ContainerTitle, ContentContainer } from "./index.astro";
 
 const { title = "", icons = [], isCentered = false } = Astro.props;
 ---
 
 <section class="icons-list" class:list={[{ "is-centered": isCentered }]}>
-  <ContainerTitle title={title} secondaryColour />
+  <ContentContainer>
+    <ContainerTitle title={title} secondaryColour />
 
-  <ul class="max-w-3xl flex flex-wrap items-start p-0 mx-auto">
-    {
-      icons.map((icon) => (
-        <li>
-          <a href={icon.url} target="_blank">
-            {icon.icon ? <img src={icon.icon} alt={icon.name} /> : icon.name}
-            <span class="sr-only">{icon.name}</span>
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+    <ul class="max-w-3xl flex flex-wrap items-start p-0 mx-auto">
+      {
+        icons.map((icon) => (
+          <li>
+            <a href={icon.url} target="_blank">
+              {icon.icon ? <img src={icon.icon} alt={icon.name} /> : icon.name}
+              <span class="sr-only">{icon.name}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </ContentContainer>
 </section>
 
 <style lang="scss" scoped>
