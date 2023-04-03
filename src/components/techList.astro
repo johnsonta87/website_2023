@@ -1,15 +1,28 @@
 ---
+import { Icon } from "astro-icon";
+
 const { list = [] } = Astro.props;
 ---
 
 <div class="tech-list">
   <ul>
-    {list.map((listItem) => <li>{listItem}</li>)}
+    {
+      list.map((listItem) => (
+        <li>
+          <p>
+            <Icon class="icon" name={listItem.icon} />
+            <strong>{listItem.skill}</strong>
+          </p>
+        </li>
+      ))
+    }
   </ul>
 </div>
 
 <style lang="scss" scoped>
   .tech-list {
+    flex: 0 0 25%;
+
     ul {
       margin: 0;
       list-style: none;

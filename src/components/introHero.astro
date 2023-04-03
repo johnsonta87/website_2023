@@ -1,6 +1,8 @@
 ---
+import { Icon } from "astro-icon";
 import { Container } from "./index.astro";
 import { colorStandout } from "../styles/vars.astro";
+import { social } from "./social.astro";
 
 const { title = "", name = "" } = Astro.props;
 ---
@@ -13,6 +15,23 @@ const { title = "", name = "" } = Astro.props;
           <span class="title">{title}</span>
           <span class="name">{name}</span>
         </h1>
+
+        <ul class="social">
+          {
+            social.map((socialItem) => (
+              <li>
+                <a href="https://github.com/johnsonta87" target="_blank">
+                  <Icon class="icon" name={socialItem.icon} />
+                </a>
+              </li>
+            ))
+          }
+          <li>
+            <a href="mailto:jnsn.ta@gmail.com"
+              ><Icon class="icon" name="ic:twotone-mail" /></a
+            >
+          </li>
+        </ul>
       </div>
 
       <div class="hero-image--container">
@@ -80,5 +99,14 @@ const { title = "", name = "" } = Astro.props;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       }
     }
+  }
+
+  .social {
+    list-style: none;
+    display: flex;
+    gap: 0.5em;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
   }
 </style>

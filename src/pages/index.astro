@@ -1,24 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { proficiencies } from "../components/proficiencies.astro";
 import {
   IntroHero,
   ContentContainer,
   IconsContainer,
   TechList,
 } from "../components/index.astro";
-
-const tech = [
-  "React",
-  "Vue",
-  "Express/Node.js",
-  "Azure DevOps",
-  "Javascript",
-  "HTML/SCSS",
-  "NextJS",
-  "Nuxt",
-  "Astro",
-  "Screen readers",
-];
 ---
 
 <Layout>
@@ -63,7 +51,7 @@ const tech = [
   </ContentContainer>
 
   <ContentContainer isGrey isFlex title="Technology">
-    {tech && <TechList list={tech} />}
+    {proficiencies && <TechList list={proficiencies} />}
 
     <div>
       <p>

@@ -21,6 +21,11 @@ const { class: className, isFlex = false, isCentered = false } = Astro.props;
     &.is-flex {
       display: flex;
       gap: 3em;
+
+      @media screen and (max-width: 767px) {
+        flex-direction: column;
+        gap: 1em;
+      }
     }
   }
 </style>
