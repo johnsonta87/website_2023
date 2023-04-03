@@ -7,13 +7,13 @@ import { social } from "./social.astro";
 const { title = "", name = "" } = Astro.props;
 ---
 
-<section class="reverse">
+<section>
   <Container>
     <div class="hero--container">
       <div class="hero-intro--container">
         <h1>
           <span class="title">{title}</span>
-          <span class="name">{name}</span>
+          <span class="name text-sky-500">{name}</span>
         </h1>
 
         <ul class="social">
@@ -42,7 +42,7 @@ const { title = "", name = "" } = Astro.props;
       <div class="hero-image--container">
         <img
           alt="Johnson Ta"
-          class="hero-featured--image"
+          class="h-40 w-40 rounded-full shadow-md mb-2"
           height="auto"
           loading="eager"
           src="../images/johnsonta.jpg"

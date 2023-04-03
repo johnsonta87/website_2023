@@ -2,7 +2,7 @@
 const { title = "", secondaryColour = false } = Astro.props;
 ---
 
-{title && <h2 class:list={[{ "is-secondary": secondaryColour }]}>{title}</h2>}
+{title && <h2 class:list={[{ "text-sky-500": secondaryColour }]}>{title}</h2>}
 
 <style lang="scss" scoped>
   h2 {

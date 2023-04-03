@@ -9,20 +9,20 @@ import { proficiencies } from "../components/proficiencies.astro";
   <ContentContainer>
     <ContainerTitle title="Proficiencies" secondaryColour />
 
-    <ul class="skills-list">
+    <ul class="skills-list mt-4">
       {
         proficiencies.map((proficiency) => (
           <li>
-            <p>
+            <span class="flex items-center text-sky-500 mt-4">
               <Icon
-                class="icon"
+                class="icon mr-2"
                 name={proficiency.icon}
                 role="img"
                 aria-label={proficiency.skill}
               />
               <strong>{proficiency.skill}</strong>
-            </p>
-            {proficiency.description}
+            </span>
+            <p class="mt-2">{proficiency.description}</p>
           </li>
         ))
       }
@@ -38,7 +38,6 @@ import { proficiencies } from "../components/proficiencies.astro";
     list-style: none;
     gap: 2em;
     padding: 0;
-    margin: 0;
 
     @media screen and (max-width: 767px) {
       grid-template-columns: 1fr;

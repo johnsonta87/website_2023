@@ -4,8 +4,6 @@ import Footer from "../components/footer.astro";
 import Navbar from "../components/navbar.astro";
 import Themes from "astro-themes";
 import {
-  scrollbar,
-  scrollbarTrack,
   fontBody,
   fontHeading,
   colorStandout,
@@ -54,7 +52,10 @@ const makeTitle = title
     />
   </head>
 
-  <body class:list={[mode === "dark" ? "dark-mode" : ""]}>
+  <body
+    class="flex flex-col min-h-screen font-sans space-y-16 bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-50"
+    class:list={[mode === "dark" ? "dark-mode" : ""]}
+  >
     <Navbar />
     <main>
       <slot />
@@ -64,8 +65,6 @@ const makeTitle = title
       lang="scss"
       is:global
       define:vars={{
-        scrollbar,
-        scrollbarTrack,
         fontBody,
         fontHeading,
         colorStandout,
@@ -100,41 +99,12 @@ const makeTitle = title
           display: none;
         }
 
-        header {
-          background-color: var(--colorGreyLight);
-          box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.15);
-
-          a {
-            color: var(--colorBodyDark);
-
-            &:hover {
-              color: var(--colorStandoutLight);
-            }
-          }
-        }
-
         footer {
           background-color: var(--colorGreyLight);
         }
 
         .icon {
           color: var(--colorBodyDark);
-        }
-
-        .is-grey {
-          background-color: var(--colorGreyLight);
-        }
-
-        .reverse {
-          background-color: var(--colorBackground);
-        }
-
-        .header-logo,
-        .is-secondary,
-        .name,
-        a,
-        strong {
-          color: var(--colorStandoutLight);
         }
 
         .hero-image--container {
@@ -153,20 +123,16 @@ const makeTitle = title
           display: none;
         }
 
+        .dark:text-white {
+          color: var(--colorLight);
+        }
+
         body {
           background-color: var(--colorBodyDark);
         }
 
         header {
           background-color: var(--colorBodyDark);
-
-          a {
-            color: var(--colorLight);
-
-            &:hover {
-              color: var(--colorStandout);
-            }
-          }
         }
 
         footer {
@@ -177,27 +143,8 @@ const makeTitle = title
           color: var(--colorLight);
         }
 
-        .is-grey {
-          background-color: var(--colorBackgroundDark);
-        }
-
-        .reverse {
-          background-color: var(--colorBackgroundDark);
-        }
-
-        .is-secondary {
-          color: var(--colorStandout);
-        }
-
         .hero-image--container {
           border: 4px solid var(--colorStandout);
-        }
-
-        .header-logo,
-        .name,
-        a,
-        strong {
-          color: var(--colorStandout);
         }
       }
 
@@ -210,14 +157,13 @@ const makeTitle = title
         width: 100%;
         margin: 0;
         font-family: var(--fontBody);
-        font-size: 1.25rem;
+        font-size: 1rem;
         overflow-x: hidden;
         margin-top: 4em;
         transition: all 0.14s ease-out;
       }
 
       a {
-        color: var(--colorText);
         text-decoration: none;
         transition: all 0.14s ease-out;
       }
@@ -238,16 +184,6 @@ const makeTitle = title
         padding-bottom: 3em;
         padding-top: 3em;
         border-bottom: var(--border);
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: var(--scrollbar);
-        border-radius: 0;
-      }
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-        background: var(--scrollbarTrack);
       }
 
       h1,
