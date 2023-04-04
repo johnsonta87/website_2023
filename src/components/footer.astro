@@ -6,7 +6,7 @@ import SocialList from "./socialList.astro";
 <footer
   class="px-4 py-2.5 dark:bg-zinc-900 border-t border-slate-900/10 dark:border-slate-300/10 bg-white"
 >
-  <Container isCentered>
+  <Container isCentered class="footer-container">
     <SocialList />
     <p>
       Copyright © {new Date().getFullYear()}
@@ -29,6 +29,12 @@ import SocialList from "./socialList.astro";
       font-size: 0.85rem;
       line-height: 1.5;
       margin: 0;
+    }
+
+    .footer-container {
+      @media screen and (max-width: 767px) {
+        flex-direction: column;
+      }
     }
   }
 </style>
