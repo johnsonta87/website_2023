@@ -1,8 +1,7 @@
 ---
-import { Icon } from "astro-icon";
 import { Container } from "./index.astro";
+import SocialList from "./socialList.astro";
 import { colorStandout } from "../styles/vars.astro";
-import { social } from "./social.astro";
 
 const { title = "", name = "" } = Astro.props;
 ---
@@ -16,33 +15,7 @@ const { title = "", name = "" } = Astro.props;
           <span class="name text-indigo-500" tabindex="1">{name}</span>
         </h1>
 
-        <ul class="social">
-          {
-            social.map((socialItem) => (
-              <li class="mr-1">
-                <a
-                  class="flex"
-                  href={socialItem.url}
-                  target="_blank"
-                >
-                  <Icon
-                    class="icon mr-1"
-                    name={socialItem.icon}
-                    role="img"
-                    aria-label={socialItem.name}
-                  />
-                  <span>{socialItem.name}</span>
-                </a>
-              </li>
-            ))
-          }
-          <li>
-            <a class="flex" href="mailto:jnsn.ta@gmail.com">
-              <Icon class="icon mr-1" name="ic:twotone-mail" />
-              <span>Email</span>
-            </a>
-          </li>
-        </ul>
+        <SocialList />
         <hr
           class="border-t-0 flex h-1 w-100 bg-gradient-to-r from-indigo-600 via-purple-400 to-sky-400 sm:mx-0 sm:w-full my-6"
         />
@@ -132,19 +105,6 @@ const { title = "", name = "" } = Astro.props;
         transition-property: transform;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       }
-    }
-  }
-
-  .social {
-    list-style: none;
-    display: flex;
-    gap: 0.5em;
-    margin: 0;
-    padding: 0;
-    justify-content: flex-end;
-
-    @media screen and (max-width: 644px) {
-      justify-content: center;
     }
   }
 </style>

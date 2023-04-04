@@ -1,11 +1,13 @@
 ---
 import { Container } from "./index.astro";
+import SocialList from "./socialList.astro";
 ---
 
 <footer
   class="px-4 py-2.5 dark:bg-zinc-900 border-t border-slate-900/10 dark:border-slate-300/10 bg-white"
 >
   <Container isCentered>
+    <SocialList />
     <p>
       Copyright © {new Date().getFullYear()}
       <strong>Johnson Ta</strong>

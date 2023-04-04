@@ -1,0 +1,43 @@
+---
+import { Icon } from "astro-icon";
+import { social } from "./social.astro";
+---
+
+<ul class="social">
+  {
+    social.map((socialItem) => (
+      <li class="mr-1">
+        <a class="flex" href={socialItem.url} target="_blank">
+          <Icon
+            class="icon mr-1"
+            name={socialItem.icon}
+            role="img"
+            aria-label={socialItem.name}
+          />
+          <span>{socialItem.name}</span>
+        </a>
+      </li>
+    ))
+  }
+  <li>
+    <a class="flex" href="mailto:jnsn.ta@gmail.com">
+      <Icon class="icon mr-1" name="ic:twotone-mail" />
+      <span>Email</span>
+    </a>
+  </li>
+</ul>
+
+<style lang="scss" scoped>
+  .social {
+    list-style: none;
+    display: flex;
+    gap: 0.5em;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+
+    @media screen and (max-width: 644px) {
+      justify-content: center;
+    }
+  }
+</style>
